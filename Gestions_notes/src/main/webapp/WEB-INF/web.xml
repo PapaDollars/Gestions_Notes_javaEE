@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+
+  <servlet>
+    <servlet-name>Accueil</servlet-name>
+    <servlet-class>com.notes.servlet.Accueil</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Accueil</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+    <servlet-name>SeConnecter</servlet-name>
+    <servlet-class>com.notes.servlet.SeConnecter</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SeConnecter</servlet-name>
+    <url-pattern>/connexion</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+    <servlet-name>AjouterNotes</servlet-name>
+    <servlet-class>com.notes.servlet.AjouterNotes</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AjouterNotes</servlet-name>
+    <url-pattern>/ajouter</url-pattern>
+  </servlet-mapping>
+  
+      <servlet>
+    <servlet-name>ModifierNotes</servlet-name>
+    <servlet-class>com.notes.servlet.ModifierNotes</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ModifierNotes</servlet-name>
+    <url-pattern>/modifier</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+        <servlet>
+    <servlet-name>AjouterEtudiants</servlet-name>
+    <servlet-class>com.notes.servlet.AjouterEtudiants</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AjouterEtudiants</servlet-name>
+    <url-pattern>/ajouterEtudiants</url-pattern>
+  </servlet-mapping>
+  
+     <servlet>
+    <servlet-name>ModifierEtudiants</servlet-name>
+    <servlet-class>com.notes.servlet.ModifierEtudiants</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ModifierEtudiants</servlet-name>
+    <url-pattern>/modifierEtudiants</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>SupprimerEtudiants</servlet-name>
+    <servlet-class>com.notes.servlet.SupprimerEtudiants</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SupprimerEtudiants</servlet-name>
+    <url-pattern>/supprimerEtudiants</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+        <servlet>
+    <servlet-name>AjouterUE</servlet-name>
+    <servlet-class>com.notes.servlet.AjouterUE</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AjouterUE</servlet-name>
+    <url-pattern>/ajouterUE</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>ModifierUE</servlet-name>
+    <servlet-class>com.notes.servlet.ModifierUE</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ModifierUE</servlet-name>
+    <url-pattern>/modifierUE</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>SupprimerUE</servlet-name>
+    <servlet-class>com.notes.servlet.SupprimerUE</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SupprimerUE</servlet-name>
+    <url-pattern>/supprimerUE</url-pattern>
+  </servlet-mapping>
+  
+
+  
+  
+     <jsp-config>
+        <jsp-property-group>
+            <url-pattern>*.jsp</url-pattern>
+            <include-prelude>/WEB-INF/taglibs.jsp</include-prelude>
+        </jsp-property-group>
+    </jsp-config>
+    
+</web-app>
