@@ -21,23 +21,34 @@
 		
 	<div class="container-fluide mt-5">
 		<div class="row p-5" >
-		<div class="col-1">
-				Codes UE :
-				<select class="form-select" aria-label="Default select example">
-					  <optgroup label="Codes ue">
-					     <c:forEach var="ue" varStatus="loop" items="${ ue }">
-						  <option value="${ loop.index }">
-						  		<c:out value="${ ue.code_UE }" />
-						  </option>
-				        </c:forEach>
-					  </optgroup>
-					  
-					</select>
+		<div class="col mb-5">
+				
+				<form method="get" action="Acceuil">
+						<div class="col-md-5">
+							<select class="form-select" aria-label="Default select example">
+							  <optgroup label="Codes ue">
+							     <c:forEach var="ue"  items="${ ue }">
+							     		
+									  <option value="${ ue.code_ue }">
+									  		<c:out value="${ ue.code_ue }" />
+	
+									  </option>
+						        </c:forEach>
+							  </optgroup>
+							  
+							</select>
+						</div>
+						<div class="col-md-2">
+							<input type="submit" class="btn btn-primary" value="Connecter">
+						</div>
+							
+					</form>
+				    
 			</div>
 
-			<div class="col">
+			<div class="row">
 					<h3>Listes de toutes les notes</h3>
-					<table border="1">
+					<table border="1" class="table table-bordered">
 				        
 			        	<tr>
 			        	<th class="p-3 text-success">
@@ -56,6 +67,9 @@
 				            <c:out value="ADRESSE" />
 				         </th>
 				         <th class="p-3 text-success">
+				            <c:out value="CODE UE" />
+				         </th>
+				         <th class="p-3 text-success">
 				            <c:out value="NOTES CC" />
 				         </th>
 				         <th class="p-3 text-success">
@@ -64,18 +78,15 @@
 				         <th class="p-3 text-success">
 				            <c:out value="NOTES SN" />
 				         </th>
-				         <th class="p-3 text-success">
-				            <c:out value="CODE UE" />
-				         </th>
 			        	</tr>
 				     
-				        <c:forEach var="produit" items="">
+				        <c:forEach var="etudiant" items="${ etudiant }">
 			        	<tr>
 			        		  <td class="p-3">
-					            <c:out value="${ etudiant.matricule }" />
+					             <c:out value="${ etudiant.matricule }"/>
 					          </td>
 					          <td class="p-3">
-					            <c:out value="${ etudiant.nom }" />
+					            <c:out value="${ etudiant.nom }"/>
 					          </td>
 					          <td class="p-3">
 					            <c:out value="${ etudiant.prenom }" />
@@ -87,20 +98,18 @@
 					            <c:out value="${ etudiant.adresse }" />
 					          </td>
 					          <td class="p-3">
-					            <c:out value="${ etudiant.telephone }" />
+					             <c:out value="${ etudiant.code_ue }" />
 					          </td>
 					          <td class="p-3">
-					            <c:out value="" />
+					             <c:out value="${ etudiant.cc }" />
 					          </td>
 					          <td class="p-3">
-					            <c:out value="" />
+					             <c:out value="${ etudiant.tp }" />
 					          </td>
 					          <td class="p-3">
-					            <c:out value="" />
+					            <c:out value="${ etudiant.sn }" />
 					          </td>
-					          <td class="p-3">
-					            <c:out value="" />
-					          </td>
+					          
 			            </tr>
 				        </c:forEach>
 		          </table>

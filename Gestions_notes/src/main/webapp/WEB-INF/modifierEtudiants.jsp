@@ -20,7 +20,7 @@
 		<%@include file="autres/header.jsp" %></div> <br><br>		
 		
 	<div class="container mt-5">
-		<div class="row p-5" >
+		<div class="row pt-5" >
 		<div class="col">
 					<h3>La liste des etudiants</h3>
 					<table border="1">
@@ -72,6 +72,13 @@
 					          <td class="p-3">
 					            <c:out value="${ etudiant.telephone }" />
 					          </td>
+					          <td class="p-3">
+					            	<form method="get" action="ModifierEtudiants" >
+							  		<input type="hidden" value="${ etudiant.id_etudiant }" name="id_etudiant"/>
+							  			<button type="submit" class="btn btn-primary bold-btn text-white">EDIT</button>
+							  		</form>
+									
+					          </td>
 			            </tr>
 				        </c:forEach>
 		          </table>
@@ -80,34 +87,34 @@
 				<h3 class="text-primary">Modifier les etudiants</h3>
 				
 				<div class=" pt-5">
-					<form method="post" action="ajouterEtudiant">
+					<form method="post" action="ModifierEtudiants">
 					   <div class="form-group">
 					      <label for="matricule">Matricule :</label>
-					      <input type="text" class="form-control" name="matricule" id="matricule" placeholder="10M1010" required>
+					      <input type="text" class="form-control" name="matricule"  id="matricule" value="${ p.matricule }" placeholder="10M1010" required>
 					   </div> <br>
 					   <div class="form-group">
 					      <label for="nom">Nom :</label>
-					      <input type="text" class="form-control" name="nom" id="nom" placeholder="Ali" required>
+					      <input type="text" class="form-control" name="nom" id="nom" value="${ p.nom }" placeholder="Ali" required>
 					   </div> <br>
 					   <div class="form-group">
 					      <label for="prenom">Prenom :</label>
-					      <input type="text" class="form-control" name="prenom" id="prenom" placeholder="Baba" required>
+					      <input type="text" class="form-control" name="prenom" id="prenom" value="${ p.prenom }" placeholder="Baba" required>
 					   </div> <br>
 					   <div class="form-group">
 					      <label for="sexe">Sexe :</label>
-					      <input type="text" class="form-control" name="sexe" id="sexe" placeholder="masculin" required>
+					      <input type="text" class="form-control" name="sexe" id="sexe" value="${ p.sexe } "placeholder="masculin" required>
 					   </div> <br>
 					   <div class="form-group">
 					      <label for="sexe">AGE :</label>
-					      <input type="text" class="form-control" name="sexe" id="sexe" placeholder="masculin" required>
+					      <input type="text" class="form-control" name="age" value="${ p.age }" id="sexe" placeholder="masculin" required>
 					   </div> <br>
 					   <div class="form-group">
 					      <label for="sexe">ADRESSE :</label>
-					      <input type="text" class="form-control" name="sexe" id="sexe" placeholder="masculin" required>
+					      <input type="text" class="form-control" name="adresse"  value="${ p.adresse }" id="sexe" placeholder="masculin" required>
 					   </div> <br>
 					   <div class="form-group">
 					      <label for="sexe">TELEPHONE :</label>
-					      <input type="text" class="form-control" name="sexe" id="sexe" placeholder="masculin" required>
+					      <input type="text" class="form-control" name="telephone" id="sexe" value="${ p.telephone }" placeholder="masculin" required>
 					   </div> <br>
 					  <button type="submit" class="btn btn-primary bold-btn d-block mx-auto fs-5 mt-5 p-2 text-white">Modifier Maintenant</button> 				
 					</form>

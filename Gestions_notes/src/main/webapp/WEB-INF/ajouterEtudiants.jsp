@@ -21,9 +21,9 @@
 		
 	<div class="container mt-5">
 		<div class="row p-5" >
-		<div class="col">
+		<div class="col ml-5">
 					<h3>La liste des etudiants</h3>
-					<table border="1">
+					<table border="1" class="table table-bordered">
 						<tr>
 			        	<th class="p-3 text-success">
 				            <c:out value="MATRICULE" />
@@ -94,19 +94,19 @@
 					   </div> <br>
 					   <div class="form-group">
 					      <label for="sexe">Sexe :</label>
-					      <input type="text" class="form-control" name="sexe" id="sexe" placeholder="masculin" required>
+					      <input type="text" class="form-control" name="sexe" id="sexe" placeholder="sexe" required>
 					   </div> <br>
 					   <div class="form-group">
 					      <label for="sexe">AGE :</label>
-					      <input type="text" class="form-control" name="sexe" id="sexe" placeholder="masculin" required>
+					      <input type="number" class="form-control" name="age" id="sexe" placeholder="Ex: " required>
 					   </div> <br>
 					   <div class="form-group">
 					      <label for="sexe">ADRESSE :</label>
-					      <input type="text" class="form-control" name="sexe" id="sexe" placeholder="masculin" required>
+					      <input type="text" class="form-control" name="adresse" id="sexe" placeholder="Ex : Ngoa Ekelee" required>
 					   </div> <br>
 					   <div class="form-group">
 					      <label for="sexe">TELEPHONE :</label>
-					      <input type="text" class="form-control" name="sexe" id="sexe" placeholder="masculin" required>
+					      <input type="tel" class="form-control" name="telephone" id="sexe" placeholder="+237 678444994" required>
 					   </div> <br>
 					  <button type="submit" class="btn btn-primary bold-btn d-block mx-auto fs-5 mt-5 p-2 text-white">Ajouter Maintenant</button> 				
 					</form>

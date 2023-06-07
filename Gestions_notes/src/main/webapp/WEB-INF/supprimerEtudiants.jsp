@@ -23,7 +23,7 @@
 		<div class="row p-5" >
 		<div class="col">
 					<h3>La liste des etudiants</h3>
-					<table border="1">
+					<table border="1" class="table table-bordered">
 					<tr>
 			        	<tr>
 			        	<th class="p-3 text-success">
@@ -46,6 +46,9 @@
 				         </th>
 				         <th class="p-3 text-success">
 				            <c:out value="TELEPHONE" />
+				         </th>
+				         <th class="p-3 text-success">
+				            <c:out value="ACTION" />
 				         </th>
 			        	</tr>
 			        	
@@ -71,6 +74,13 @@
 					          </td>
 					          <td class="p-3">
 					            <c:out value="${ etudiant.telephone }" />
+					          </td>
+					           <td class="p-3">
+					            	<form method="get" action="SupprimerEtudiants" >
+							  		<input type="hidden" value="${ etudiant.id_etudiant }" name="id_etudiant"/>
+							  			<button type="submit" class="btn btn-danger bold-btn text-white">DELETE</button>
+							  		</form>
+									
 					          </td>
 			            </tr>
 				        </c:forEach>

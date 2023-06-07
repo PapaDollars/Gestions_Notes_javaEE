@@ -23,7 +23,7 @@
 		<div class="row p-5" >
 		<div class="col">
 					<h3>Toutes les codes des UE</h3>
-		        <table border="1">
+		        <table border="1" class="table table-bordered">
 		        		<tr>
 			        	<th class="p-3 text-success">
 				            <c:out value="ID UE" />
@@ -45,13 +45,13 @@
 					            <c:out value="${ ue.id_ue }" />
 					          </td>
 					          <td class="p-2">
-					            <c:out value="${ ue.code_UE }" />
+					            <c:out value="${ ue.libelle }" />
 					          </td>
 					          <td class="p-2">
 					            <c:out value="${ ue.credit }" />
 					          </td>
 					          <td class="p-2">
-					            <c:out value="${ ue.titre }" />
+					            <c:out value="${ ue.code_ue }" />
 					          </td>
 			            </tr>
 				        </c:forEach>

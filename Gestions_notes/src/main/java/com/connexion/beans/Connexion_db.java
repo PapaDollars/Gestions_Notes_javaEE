@@ -15,7 +15,7 @@ public class Connexion_db {
         }
 
         try {
-            connexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/notes", "dollar", "dollar0000");
+            connexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/GestionNotes", "franck", "Njie09.");
         } catch (SQLException e) {
             e.printStackTrace();
         }

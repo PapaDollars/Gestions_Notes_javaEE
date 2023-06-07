@@ -23,7 +23,7 @@
 		<div class="row p-5" >
 		<div class="col">
 					<h3>Toutes les codes des UE</h3>
-		        <table border="1">
+		        <table border="1" class="table table-bordered">
 		        		<tr>
 			        	<th class="p-3 text-success">
 				            <c:out value="ID UE" />
@@ -37,6 +37,9 @@
 				         <th class="p-3 text-success">
 				            <c:out value="TITRE" />
 				         </th>
+				         <th class="p-3 text-success">
+				            <c:out value="ACTION" />
+				         </th>
 			        	</tr>
 			        	
 				        <c:forEach var="ue" items="${ ue }">
@@ -45,17 +48,17 @@
 					            <c:out value="${ ue.id_ue }" />
 					          </td>
 					          <td class="p-2">
-					            <c:out value="${ ue.code_UE }" />
+					            <c:out value="${ ue.libelle }" />
 					          </td>
 					          <td class="p-2">
 					            <c:out value="${ ue.credit }" />
 					          </td>
 					          <td class="p-2">
-					            <c:out value="${ ue.titre }" />
+					            <c:out value="${ ue.code_ue }" />
 					          </td>
 					          <td>
-				          		<form method="get" action="ajouterNote" >
-				          		<input type="hidden" value="" name="id_note" />
+				          		<form method="get" action="ModifierUE" >
+				          		<input type="hidden" value="${ ue.id_ue }" name="id_ue"/>
 				          			<button type="submit" class="btn btn-success bold-btn text-white">Modifier</button>
 				          		</form>
 					          </td>
@@ -69,18 +72,18 @@
 				<h3 class="text-primary">Modifier les UE</h3>
 				
 				<div class="mt-5 pt-5">
-					<form method="post" action="ajouterUE">
+					<form method="post" action="ModifierUE">
 					   <div class="form-group">
 					      <label for="code_ue">Saisissez le code de l'UE a ajouter...</label>
-					      <input type="text" class="form-control" name="code_ue" id="code_ue" placeholder="ict318" required>
+					      <input type="text" class="form-control" value="${ p.libelle }" name="libelle" id="code_ue" placeholder="ict318" required>
 					   </div> <br>
 					   <div class="form-group">
 					      <label for="titre">Titre de l'ue</label>
-					      <input type="text" class="form-control" name="titre" id="titre" placeholder="ict318" required>
+					      <input type="text" class="form-control" name="code_ue" value="${ p.code_ue }" id="code_ue" placeholder="ict318" required>
 					   </div> <br>
 					   <div class="form-group">
 					      <label for="credit">Credit</label>
-					      <input type="text" class="form-control" name="credit" id="credit" placeholder="6" required>
+					      <input type="number" class="form-control" value="${ p.credit }" name="credit" id="credit" placeholder="6" required>
 					   </div> <br>
 					  <button type="submit" class="btn btn-primary bold-btn d-block mx-auto fs-5 mt-5 p-2 text-white">Valider</button> 				
 					</form>

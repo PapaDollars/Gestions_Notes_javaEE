@@ -8,7 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.notes.beans.CrudUE;
-import com.notes.beans.UE;
+
+import com.notes.beans.Ue;
 
 
 @WebServlet("/AjouterUE")
@@ -25,7 +26,12 @@ public class AjouterUE extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		CrudUE crud = new CrudUE();
-		request.setAttribute("ue", crud.recupererUEs());
+		try {
+			request.setAttribute("ue", crud.SelectionnerAllUe());
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/ajouterUE.jsp").forward(request, response);
 	}
@@ -33,14 +39,32 @@ public class AjouterUE extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		UE ue = new UE();
-		ue.setCode_UE(request.getParameter("code_ue"));
-		ue.setTitre(request.getParameter("titre"));
-		ue.setCredit(request.getParameter("credit"));
 		
+		String code_ue = request.getParameter("code_ue");
+		String libelle = request.getParameter("titre");
+		
+		String age =""; int credit = 0;
+		try {
+		    age= request.getParameter("credit");
+		     credit = Integer.parseInt(age);
+		} catch (NumberFormatException e) {
+		    System.out.println("La valeur fournie n'est pas convertible en Integer");
+		}
+		
+		Ue ue = new Ue(libelle,code_ue,credit);
 		CrudUE crud = new CrudUE();
-		crud.ajouterUE(ue);
-		request.setAttribute("ue", crud.recupererUEs());
+		try {
+			crud.ajouterUE(ue);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			request.setAttribute("ue", crud.SelectionnerAllUe());
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 //		response.sendRedirect("/WEB-INF/ue.jsp");
 		this.getServletContext().getRequestDispatcher("/WEB-INF/ajouterUE.jsp").forward(request, response);
