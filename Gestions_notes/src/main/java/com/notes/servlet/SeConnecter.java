@@ -1,6 +1,11 @@
 package com.notes.servlet;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,12 +34,30 @@ public class SeConnecter extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		Connexion_appli form = new Connexion_appli();
+		String form = "Username ou mot de passe Incorrect";
+		String address = request.getParameter("username");
+		String password = request.getParameter("password");
 		
-		form.verifier(request);
+		String sql = "select * from admin where username=? and password=?";
 		
-		System.out.print("valeur result = "+form.getIdentifiant());
-		if(form.getIdentifiant() > 0){
+		Connection con = null;
+		try {
+			con = com.connexion.beans.ConnexionDB.getConnection();
+		} catch (ClassNotFoundException | SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		try {
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, address);
+			ps.setString(2, password);
+			
+			ResultSet rs =  ps.executeQuery();
+			
+			
+				
+		if(rs.next()){
 			
 			this.getServletContext().getRequestDispatcher("/WEB-INF/accueil.jsp").forward(request, response);
 		}
@@ -42,7 +65,9 @@ public class SeConnecter extends HttpServlet {
 			request.setAttribute("form", form);
 			this.getServletContext().getRequestDispatcher("/WEB-INF/seconnecter.jsp").forward(request, response);
 		}
-		
+			}catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	}
-
 }

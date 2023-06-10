@@ -41,6 +41,7 @@ public class EtudiantController {
         ResultSet resultat = requetePrepared.executeQuery();
 
         while(resultat.next()) {
+        	int id_etudiant =  resultat.getInt("id_etudiant");
             String nom =  resultat.getString("nom");
             String prenom =  resultat.getString("prenom");
             String sexe =  resultat.getString("sexe");
@@ -49,7 +50,7 @@ public class EtudiantController {
             String adresse =  resultat.getString("adresse");
 
             String matricule =  resultat.getString("matricule");
-            etudiant  =  new Etudiant(nom,prenom,sexe,age,telephone,adresse,matricule);
+            etudiant  =   new Etudiant(id_etudiant,nom,prenom,sexe,age,telephone,adresse,matricule);
         }
 
         return etudiant;

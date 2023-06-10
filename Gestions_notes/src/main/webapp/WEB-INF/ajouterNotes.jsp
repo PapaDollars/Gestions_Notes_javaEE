@@ -25,7 +25,7 @@
 				<h3 class="text-success">Ajouter les notes</h3>
 				
 				<div class="mt-5 pt-5">
-					<form method="post" action="ajouterNotes">
+					<form method="post" action="AjouterNotes">
 					  <div class="form-group">
 					  	Codes UE :
 					     <select class="form-select" aria-label="Default select example" name="id_ue">
@@ -38,19 +38,20 @@
 					   </div> <br>
 					   <div class="form-group">
 					      <label for="note">Matricule :</label>
-					      <input type="text" class="form-control" name="matricule" id="matricule"  value="${ p.matricule }"  required>
+					      <input type="text" class="form-control" disabled name="matricule" id="matricule"  value="${ p.matricule }"  required>
+					      <input type="hidden" name="id_user" value="${ p.id_etudiant }">
 					   </div> <br>
 					   <div class="form-group">
 					      <label for="note">Note CC :</label>
-					      <input type="number" class="form-control" name="cc" id="note" placeholder="exemple : 10" required>
+					      <input type="number" class="form-control" name="cc" min="1" max="30" id="note" placeholder="exemple : 10" required>
 					   </div> <br>
 					   <div class="form-group">
 					      <label for="note">Note TP :</label>
-					      <input type="number" class="form-control" name="tp" id="note" placeholder="exemple : 10" required>
+					      <input type="number" class="form-control" min="1" max="40" name="tp" id="note" placeholder="exemple : 10" required>
 					   </div> <br>
 					   <div class="form-group">
 					      <label for="note">Note SN :</label>
-					      <input type="number" class="form-control" name="sn" id="note" placeholder="exemple : 10" required>
+					      <input type="number" class="form-control" min="1" max="30" name="sn" id="note" placeholder="exemple : 10" required>
 					   </div> <br>
 					  <button type="submit" class="btn btn-success bold-btn d-block mx-auto fs-5 mt-5 p-2 text-white">Valider</button> 				
 					</form>

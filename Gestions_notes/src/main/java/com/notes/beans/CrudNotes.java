@@ -62,7 +62,7 @@ public class CrudNotes {
       List<AffichageNote> notes =  new ArrayList<AffichageNote>();
       Connection con =  ConnexionDB.getConnection();
 
-      String sql = "select matricule,nom,prenom,age,adresse,cc,sn,tp,code_ue from notes join  etudiant using(id_etudiant) join ue using(id_ue)";
+      String sql = "select id_note,matricule,nom,prenom,age,adresse,cc,sn,tp,code_ue from notes join  etudiant using(id_etudiant) join ue using(id_ue)";
       PreparedStatement requetePrepared = con.prepareStatement(sql);
 
 
@@ -70,6 +70,7 @@ public class CrudNotes {
 
       while(resultat.next())
       {
+    	  int id_note = resultat.getInt("id_note");
           String nom =  resultat.getString("nom");
           String  prenom=  resultat.getString("prenom");
           String  adresse=  resultat.getString("adresse");
@@ -80,26 +81,59 @@ public class CrudNotes {
           int sn =  resultat.getInt("sn");
           int tp =  resultat.getInt("tp");
           
-          notes.add(new AffichageNote(nom,prenom,code_ue,adresse,matricule,cc,age,sn,tp));
+          notes.add(new AffichageNote(id_note,nom,prenom,code_ue,adresse,matricule,cc,age,sn,tp));
           
       }
 
       return  notes;
   }
-  public List<AffichageNote> selectionnerWithUE(int id) throws ClassNotFoundException, SQLException
+  public List<AffichageNote> selectionnerWithUE(String id) throws ClassNotFoundException, SQLException
   {
       List<AffichageNote> notes =  new ArrayList<AffichageNote>();
       Connection con =  ConnexionDB.getConnection();
 
-      String sql = "select matricule,nom,prenom,age,adresse,cc,sn,tp,code_ue from notes join  etudiant using(id_etudiant) join ue using(id_ue) where id_ue=?";
+      String sql = "select id_etudiant,matricule,nom,prenom,age,adresse,cc,sn,tp,code_ue from notes join  etudiant using(id_etudiant) join ue using(id_ue) where code_ue=?";
+      PreparedStatement requetePrepared = con.prepareStatement(sql);
+      requetePrepared.setString(1, id);
+
+      ResultSet resultat = requetePrepared.executeQuery();
+
+      while(resultat.next())
+      {
+    	  
+    	  int id_etudiant = resultat.getInt("id_etudiant");
+          String nom =  resultat.getString("nom");
+          String  prenom=  resultat.getString("prenom");
+          String  adresse=  resultat.getString("adresse");
+          String  code_ue=  resultat.getString("code_ue");
+          String matricule = resultat.getString("matricule");
+          int age =  resultat.getInt("age");
+          int cc =  resultat.getInt("cc");
+          int sn =  resultat.getInt("sn");
+          int tp =  resultat.getInt("tp");
+          
+          notes.add(new AffichageNote(id_etudiant,nom,prenom,code_ue,adresse,matricule,cc,age,sn,tp));
+          
+      }
+
+      return  notes;
+  }
+  
+  // Selectionner Un Product
+  public AffichageNote selectionerUneNotes(int id) throws ClassNotFoundException, SQLException{
+	  AffichageNote etudiant = null;
+      Connection con =  ConnexionDB.getConnection();
+
+      String sql = "select id_ue,id_etudiant,id_note,matricule,nom,prenom,age,adresse,cc,sn,tp,code_ue from notes join  etudiant using(id_etudiant) join ue using(id_ue) where id_note=?";
       PreparedStatement requetePrepared = con.prepareStatement(sql);
       requetePrepared.setInt(1, id);
 
       ResultSet resultat = requetePrepared.executeQuery();
 
-      while(resultat.next())
-      {
-
+      while(resultat.next()) {
+    	  int id_ue = resultat.getInt("id_note");
+    	  int id_etudiant = resultat.getInt("id_etudiant");
+    	  int id_note = resultat.getInt("id_note");
           String nom =  resultat.getString("nom");
           String  prenom=  resultat.getString("prenom");
           String  adresse=  resultat.getString("adresse");
@@ -110,10 +144,10 @@ public class CrudNotes {
           int sn =  resultat.getInt("sn");
           int tp =  resultat.getInt("tp");
           
-          notes.add(new AffichageNote(nom,prenom,code_ue,adresse,matricule,cc,age,sn,tp));
-          
+          etudiant  = new AffichageNote(id_ue,id_etudiant,id_note,nom,prenom,code_ue,adresse,matricule,cc,age,sn,tp);
       }
 
-      return  notes;
+      return etudiant;
   }
+  
 }

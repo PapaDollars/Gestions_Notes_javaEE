@@ -11,8 +11,16 @@ public class Notes {
 	
 	
 	
-	public Notes(int id_note, int id_etudiant, int id_ue, int cc, int tp, int sn) {
+	public Notes( int id_etudiant, int id_ue, int cc, int tp, int sn) {
 	
+		this.id_etudiant = id_etudiant;
+		this.id_ue = id_ue;
+		this.cc = cc;
+		this.tp = tp;
+		this.sn = sn;
+	}
+	public Notes( int id_note,int id_etudiant, int id_ue, int cc, int tp, int sn) {
+		
 		this.id_note = id_note;
 		this.id_etudiant = id_etudiant;
 		this.id_ue = id_ue;

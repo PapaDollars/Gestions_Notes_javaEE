@@ -11,12 +11,49 @@ public class AffichageNote {
 	private int age;
 	private int tp;
 	private int sn;
+	private int id_note;
+	private int id_ue;
+	private int id_etudiant;
 	
 	
+	public int getId_note() {
+		return id_note;
+	}
+	public void setId_note(int id_note) {
+		this.id_note = id_note;
+	}
+	public AffichageNote(int id_ue,int id_etudiant,int id_note, String nom, String prenom, String code_ue, String adresse, String matricule,
+			int cc, int age, int tp, int sn) {
+		this.id_etudiant = id_etudiant;
+		this.id_ue = id_ue;
+		this.id_note = id_note;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.code_ue = code_ue;
+		this.adresse = adresse;
+		this.matricule = matricule;
+		this.cc = cc;
+		this.age = age;
+		this.tp = tp;
+		this.sn = sn;
+	}
+	public int getId_ue() {
+		return id_ue;
+	}
+	public void setId_ue(int id_ue) {
+		this.id_ue = id_ue;
+	}
+	public int getId_etudiant() {
+		return id_etudiant;
+	}
+	public void setId_etudiant(int id_etudiant) {
+		this.id_etudiant = id_etudiant;
+	}
 	
-	public AffichageNote(String nom, String prenom, String code_ue, String adresse, String matricule, int cc, int age,
+	
+	public AffichageNote(int id_note,String nom, String prenom, String code_ue, String adresse, String matricule, int cc, int age,
 			int tp, int sn) {
-	
+		this.id_note = id_note;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.code_ue = code_ue;

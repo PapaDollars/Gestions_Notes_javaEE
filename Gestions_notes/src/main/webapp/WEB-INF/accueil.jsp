@@ -21,11 +21,11 @@
 		
 	<div class="container-fluide mt-5">
 		<div class="row p-5" >
-		<div class="col mb-5">
+		<div class="col-md-5 mb-5">
 				
-				<form method="get" action="Acceuil">
-						<div class="col-md-5">
-							<select class="form-select" aria-label="Default select example">
+				<form method="post" action="Acceuil">
+						<div class="col-md-3">
+							<select class="form-select"  name="id_ue" aria-label="Default select example">
 							  <optgroup label="Codes ue">
 							     <c:forEach var="ue"  items="${ ue }">
 							     		
@@ -39,7 +39,7 @@
 							</select>
 						</div>
 						<div class="col-md-2">
-							<input type="submit" class="btn btn-primary" value="Connecter">
+							<input type="submit" class="btn btn-primary" value="Trier">
 						</div>
 							
 					</form>

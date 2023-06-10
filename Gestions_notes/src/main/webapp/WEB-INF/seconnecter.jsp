@@ -31,7 +31,7 @@
 					<form method="post" action="seconnecter">
 					  <div class="form-group">
 					    <label for="adresse">Adresse email</label>
-					    <input type="email" class="form-control" id="adresse" name="adresse" aria-describedby="emailHelp" placeholder="Enter email" />
+					    <input type="email" class="form-control" id="adresse" name="username" aria-describedby="emailHelp" placeholder="Enter email" />
 					  </div> <br>
 					  <div class="form-group">
 					    <label for="password">Mot de passe</label>
