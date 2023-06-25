@@ -87,14 +87,14 @@ public class CrudNotes {
 
       return  notes;
   }
-  public List<AffichageNote> selectionnerWithUE(String id) throws ClassNotFoundException, SQLException
+  public List<AffichageNote> selectionnerWithUE(int id) throws ClassNotFoundException, SQLException
   {
       List<AffichageNote> notes =  new ArrayList<AffichageNote>();
       Connection con =  ConnexionDB.getConnection();
 
-      String sql = "select id_etudiant,matricule,nom,prenom,age,adresse,cc,sn,tp,code_ue from notes join  etudiant using(id_etudiant) join ue using(id_ue) where code_ue=?";
+      String sql = "select id_etudiant,matricule,nom,prenom,age,adresse,cc,sn,tp,code_ue from notes join  etudiant using(id_etudiant) join ue using(id_ue) where id_ue=?";
       PreparedStatement requetePrepared = con.prepareStatement(sql);
-      requetePrepared.setString(1, id);
+      requetePrepared.setInt(1, id);
 
       ResultSet resultat = requetePrepared.executeQuery();
 

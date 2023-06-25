@@ -29,7 +29,7 @@
 							  <optgroup label="Codes ue">
 							     <c:forEach var="ue"  items="${ ue }">
 							     		
-									  <option value="${ ue.code_ue }">
+									  <option value="${ ue.id_ue }">
 									  		<c:out value="${ ue.code_ue }" />
 	
 									  </option>
